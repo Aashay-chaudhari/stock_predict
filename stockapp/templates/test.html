@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+<h1>Predicted Close price for tomorrow is: {{ test_value }}</h1>
+
+<canvas id="speedChart1" width="200" height="80"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script id="rendered-js">
+var speedCanvas = document.getElementById("speedChart1");
+
+var dataFirst = {
+  label: "Actual Close Price",
+  data: [0, 59, 75, 20, 20, 55, 40],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond = {
+  label: "Predicted Close Price",
+  data: [20, 15, 60, 60, 65, 30, 70],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData = {
+    labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
+<!--  labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],-->
+  datasets: [dataFirst, dataSecond] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart = new Chart(speedCanvas, {
+  type: 'line',
+  data: speedData,
+  options: chartOptions });
+//# sourceURL=pen.js
+</script>
+{% endblock content %}

@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chart.js demo</title>
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+    <style>
+        .chart1{
+        float:left;
+        }
+        .chart2{
+
+        }
+
+    canvas{
+
+  width:900px !important;
+  height:450px !important;
+
+}
+
+
+    </style>
+<div class="container1">
+<div class="chart1">
+<canvas id="speedChart1"></canvas>
+</div>
+    </div><br>
+    <div class="container1">
+<div class="chart2">
+<canvas id="speedChart2"></canvas>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script id="rendered-js">
+var speedCanvas1 = document.getElementById("speedChart1");
+
+var dataFirst = {
+  label: "Actual Close Price of NIFTY-50",
+  data: [1,2,3],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond = {
+  label: "Predicted Close Price of NIFTY-50",
+  data: [3,4,2],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData = {
+    labels: ['A', 'B', 'C'],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst, dataSecond] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart1 = new Chart(speedCanvas1, {
+  type: 'line',
+  data: speedData,
+  options: chartOptions });
+//# sourceURL=pen.js
+
+var speedCanvas2= document.getElementById("speedChart2");
+
+var dataFirst2 = {
+  label: "Actual Close Price of NIFTY-50",
+  data: [2,8,6],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond2 = {
+  label: "Predicted Close Price of NIFTY-50",
+  data: [5,2],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData2 = {
+    labels: ['A', 'B', 'C'],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst2, dataSecond2] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart2 = new Chart(speedCanvas2, {
+  type: 'line',
+  data: speedData2,
+  data: speedData2,
+  options: chartOptions });
+//# sourceURL=pen.js
+
+var speedCanvas= document.getElementById("speedChart2");
+
+var dataFirst2 = {
+  label: "Actual Close Price of NIFTY-50",
+  data: [2,8,6],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond2 = {
+  label: "Predicted Close Price of NIFTY-50",
+  data: [5,2],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData2 = {
+    labels: ['A', 'B', 'C'],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst2, dataSecond2] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart2 = new Chart(speedCanvas2, {
+  type: 'line',
+  data: speedData2,
+  data: speedData2,
+  options: chartOptions });
+//# sourceURL=pen.js
+</script>
+
+</body>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<h1 style="font-size:35px;">Stock Watchlist</h1>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 30%;
+  text-align: center;
+  padding: 10px;
+}
+</style>
+<table>
+{% for stock in stock_list %}
+<tr><td>{{ stock }}
+</td></tr>
+{% endfor %}
+
+</table><br><br>
+ <form action="addstock" method="post">
+        {% csrf_token %}
+            <button type="submit">Add</button>
+    </form><br><br><br>
+ <form action="calculatecalls1" method="post">
+        {% csrf_token %}
+            <button type="submit">Generate Signals</button>
+    </form><br><br>
+
+{% endblock content %}

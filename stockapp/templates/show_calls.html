@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<center>
+<h1 style="font-size:35px;">Stock Watchlist</h1><br>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 30%;
+  text-align: center;
+  padding: 10px;
+}
+
+    canvas{
+
+  width:600px !important;
+  height:500px !important;
+
+}
+</style>
+
+
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+    <style>
+<!--        .chart1{-->
+<!--        width: 25%;-->
+<!--        float:left;-->
+<!--        }-->
+<!--        .chart2{-->
+<!--        width: 25%;-->
+<!--        }-->
+<!--        .chart3{-->
+<!--        width: 25%;-->
+<!--        float:left;-->
+<!--        }-->
+<!--        .chart4{-->
+<!--        width: 25%;-->
+<!--        }-->
+
+
+
+    </style>
+<div class="container1">
+<div class="chart1">
+180 days Chart of lstm2(Multiple Inputs)
+<canvas id="speedChart1"></canvas>
+</div>
+<div class="chart2">
+30 days Chart of lstm2(Multiple Inputs)
+<canvas id="speedChart2"></canvas>
+</div>
+    </div>
+<div class="container2">
+<div class="chart3">
+180 days Chart of lstm1(Single Inputs)
+<canvas id="speedChart3"></canvas>
+</div>
+<div class="chart4">
+30 days Chart of lstm1(Single Inputs)
+<canvas id="speedChart4"></canvas>
+</div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script id="rendered-js">
+var speedCanvas1 = document.getElementById("speedChart1");
+
+var dataFirst = {
+  label: "Actual Close Price",
+  data: [{% for close in test_close_prices_180 %} '{{ close }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond = {
+  label: "Predicted Close Price(LSTM1)",
+  data: [{% for price in prediction_list_180 %} '{{ price }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData = {
+    labels: [{% for dates in test_dates_180 %} '{{ dates }}',
+        {% endfor %}],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst, dataSecond] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 20,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart1 = new Chart(speedCanvas1, {
+  type: 'line',
+  data: speedData,
+  options: chartOptions });
+//# sourceURL=pen.js
+
+var speedCanvas2= document.getElementById("speedChart2");
+
+var dataFirst2 = {
+  label: "Actual Close Price",
+  data: [{% for close in test_close_prices_60 %} '{{ close }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond2 = {
+  label: "Predicted Close Price(LSTM1)",
+  data: [{% for price in prediction_list_60 %} '{{ price }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData2 = {
+    labels: [{% for dates in test_dates_60 %} '{{ dates }}',
+        {% endfor %}],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst2, dataSecond2] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 20,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart2 = new Chart(speedCanvas2, {
+  type: 'line',
+  data: speedData2,
+  data: speedData2,
+  options: chartOptions });
+//# sourceURL=pen.js
+
+var speedCanvas3= document.getElementById("speedChart3");
+
+var dataFirst3 = {
+  label: "Actual Close Price",
+  data: [{% for close in test_close_prices1_180 %} '{{ close }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond3 = {
+  label: "Predicted Close Price(LSTM2)",
+  data: [{% for price in prediction_list1_180 %} '{{ price }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData3 = {
+    labels: [{% for dates in test_dates1_180 %} '{{ dates }}',
+        {% endfor %}],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst3, dataSecond3] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 20,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart3 = new Chart(speedCanvas3, {
+  type: 'line',
+  data: speedData3,
+  data: speedData3,
+  options: chartOptions });
+//# sourceURL=pen.js
+
+var speedCanvas4= document.getElementById("speedChart4");
+
+var dataFirst4 = {
+  label: "Actual Close Price",
+  data: [{% for close in test_close_prices1_60 %} '{{ close }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'black' };
+
+
+var dataSecond4 = {
+  label: "Predicted Close Price(LSTM2)",
+  data: [{% for price in prediction_list1_60 %} '{{ price }}',
+        {% endfor %}],
+  lineTension: 0,
+  fill: false,
+  borderColor: 'blue' };
+
+
+var speedData4 = {
+    labels: [{% for dates in test_dates1_60 %} '{{ dates }}',
+        {% endfor %}],
+<!--  labels: ['A', 'B', 'C'],-->
+  datasets: [dataFirst4, dataSecond4] };
+
+
+var chartOptions = {
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 20,
+      fontColor: 'black' } } };
+
+
+
+
+var lineChart4 = new Chart(speedCanvas4, {
+  type: 'line',
+  data: speedData4,
+  data: speedData4,
+  options: chartOptions });
+//# sourceURL=pen.js
+</script><br><br>
+<table>
+<tr>
+    <th>Multivariate LSTM</th>
+    <th>% scope</th>
+    <th>Stock Name</th>
+    <th>Single Input LSTM</th>
+    <th>% scope</th>
+</tr>
+{% for stock in stock_list %}
+<tr>
+    <td>{{ stock.lstm1 }}</td>
+    <td>{{ stock.lstm1_scope }}</td>
+    <td><a href="symbol/{{stock.symbol}}">{{ stock.symbol }}</td>
+    <td>{{ stock.lstm2 }}</td>
+    <td>{{ stock.lstm2_scope }}</td>
+</tr>
+{% endfor %}
+
+</table>
+<br><br>
+</center>
+{% endblock content %}
